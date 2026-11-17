@@ -1,0 +1,115 @@
+/* 🚴‍♂️ SmartRide Admin Dark Neon Theme */
+/* Designed for modern, sleek admin look */
+
+:root {
+    --neon-green: #10b981;
+    --neon-cyan: #06b6d4;
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --text-light: #e2e8f0;
+    --text-muted: #94a3b8;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --success: #22c55e;
+}
+
+/* 🌌 Background & Layout */
+body, #container, .dashboard {
+    background-color: var(--bg-dark) !important;
+    color: var(--text-light) !important;
+}
+
+/* Navbar */
+#header {
+    background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+    color: #fff !important;
+    box-shadow: 0 2px 12px rgba(16, 185, 129, 0.4);
+}
+
+#branding h1 a, #branding h1 a:visited {
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 22px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Sidebar */
+#nav-sidebar {
+    background-color: var(--bg-card) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#nav-sidebar a {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+    transition: color 0.3s, background 0.3s;
+}
+
+#nav-sidebar a:hover, #nav-sidebar .current-model a {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--neon-green) !important;
+}
+
+/* Dashboard Modules */
+.dashboard-module, .module caption, .inline-group caption {
+    background-color: var(--bg-card) !important;
+    color: var(--neon-cyan) !important;
+    border-radius: 10px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+table {
+    background-color: var(--bg-card) !important;
+    color: var(--text-light);
+}
+
+th, td {
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+a:link, a:visited {
+    color: var(--neon-cyan);
+}
+
+a:hover {
+    color: var(--neon-green);
+}
+
+/* Buttons */
+.button, input[type=submit], button {
+    background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan)) !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: 600;
+    border-radius: 6px !important;
+    transition: box-shadow 0.3s ease;
+}
+
+.button:hover, input[type=submit]:hover, button:hover {
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Login Page */
+.login #container {
+    background: var(--bg-card);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.login .submit-row input {
+    background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan)) !important;
+    border-radius: 8px;
+    color: #fff !important;
+}
+
+/* Footer */
+#footer {
+    background: var(--bg-card);
+    color: var(--text-muted);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding: 12px;
+    font-size: 13px;
+}

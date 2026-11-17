@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Ride — Scrollable UI Preview</title>
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+  <!-- Your Polished CSS -->
+  <link rel="stylesheet" href="UserHome.css" />
+</head>
+
+<body>
+  <div class="uh-outer">
+    <!-- Gradient Background -->
+    <div class="uh-gradient-bg"></div>
+
+    <!-- 🌍 Navbar -->
+    <nav class="navbar smart-navbar fixed-top">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="logo-dot me-2"></div>
+          <span class="navbar-brand fw-bold text-light mb-0">SMART RIDE 🚴‍♂️</span>
+        </div>
+        <div class="d-none d-md-flex gap-3 text-light">
+          <span class="nav-link text-light" style="cursor:pointer;">🏠 Home</span>
+          <span class="nav-link text-light" style="cursor:pointer;">💰 Wallet</span>
+          <span class="nav-link text-light" style="cursor:pointer;">📤 Upload</span>
+          <span class="nav-link text-light" style="cursor:pointer;">🚨 Help</span>
+          <span class="nav-link text-danger fw-bold" style="cursor:pointer;">🚪 Logout</span>
+        </div>
+      </div>
+      <div class="gradient-line"></div>
+    </nav>
+
+    <!-- ✅ Main Content -->
+    <div class="uh-container py-5">
+      <!-- HERO -->
+      <section class="uh-hero text-center py-5">
+        <h1 class="display-5 fw-bold">Smart Ride</h1>
+        <p class="lead opacity-75">Your city, your ride — find the nearest scooters & bikes instantly</p>
+
+        <div class="search-bar mt-4 d-flex justify-content-center">
+          <div class="input-group" style="max-width: 680px;">
+            <input class="form-control" placeholder="Search by name, type, or area..." />
+            <button class="btn btn-primary">Search</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAP SECTION -->
+      <section class="uh-section mb-5">
+        <div class="card uh-card p-3">
+          <h5 class="fw-bold text-primary mb-3">🗺️ Nearby Scooters & Bikes</h5>
+          <div class="rounded-4 overflow-hidden" style="height: 300px; background: #0c2033; color:#aaa; display:flex; align-items:center; justify-content:center;">
+            <p>📍 Map Placeholder — Integrated via Leaflet.js</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VEHICLE CAROUSEL -->
+      <section class="uh-section mb-5">
+        <h5 class="fw-bold text-primary mb-3">Available Vehicles</h5>
+        <div class="vehicle-carousel">
+          <div class="vehicle-card">
+            <div class="vehicle-media">
+              <img src="https://i.ibb.co/9rRNYMh/scooter1.jpg" alt="E-Scooter" />
+            </div>
+            <div class="p-3">
+              <h6>E-Scooter X1</h6>
+              <div class="small text-muted">Electric • 200m</div>
+              <button class="btn btn-sm btn-primary me-2 mt-2">Book</button>
+              <button class="btn btn-sm btn-outline-warning mt-2">♡</button>
+            </div>
+          </div>
+          <div class="vehicle-card">
+            <div class="vehicle-media">
+              <img src="https://i.ibb.co/qY7VKTK/bike1.jpg" alt="E-Bike" />
+            </div>
+            <div class="p-3">
+              <h6>E-Bike Rider</h6>
+              <div class="small text-muted">Hybrid • 400m</div>
+              <button class="btn btn-sm btn-primary me-2 mt-2">Book</button>
+              <button class="btn btn-sm btn-outline-warning mt-2">♡</button>
+            </div>
+          </div>
+          <div class="vehicle-card">
+            <div class="vehicle-media">
+              <img src="https://i.ibb.co/4V9zV6N/scooter2.jpg" alt="Scooter" />
+            </div>
+            <div class="p-3">
+              <h6>Urban Scooter</h6>
+              <div class="small text-muted">Eco • 300m</div>
+              <button class="btn btn-sm btn-primary me-2 mt-2">Book</button>
+              <button class="btn btn-sm btn-outline-warning mt-2">♡</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WALLET + NOTIFICATIONS -->
+      <section class="uh-section mb-5">
+        <div class="row g-4">
+          <div class="col-md-5">
+            <div class="uh-card p-4 text-center">
+              <h5 class="fw-bold text-success mb-3">💰 Wallet</h5>
+              <h3>₹120.00</h3>
+              <p class="text-muted mb-2">Current Balance</p>
+              <button class="uh-btn-glow btn mt-2">Top-Up ₹100</button>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="uh-card p-4">
+              <h5 class="fw-bold text-warning mb-3">🔔 Notifications</h5>
+              <div style="max-height:220px; overflow-y:auto;">
+                <div class="small text-muted mb-2">✅ Ride completed successfully!</div>
+                <div class="small text-muted mb-2">💡 New scooter available near Perumpadappu!</div>
+                <div class="small text-muted mb-2">🧾 Your monthly summary is ready.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEEDBACK / UPLOAD -->
+      <section class="uh-cta-section my-5 text-light p-4">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <h4>📤 Upload Verification Documents</h4>
+            <form>
+              <label class="small mb-1">Driving License</label>
+              <input type="file" class="form-control mb-2">
+              <label class="small mb-1">ID Proof (Aadhaar / PAN)</label>
+              <input type="file" class="form-control mb-2">
+              <button class="uh-btn-glow btn mt-2">Upload</button>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <h4>💬 Feedback & Complaints</h4>
+            <textarea class="form-control mb-3" rows="3" placeholder="Share your experience..."></textarea>
+            <div class="d-flex gap-2">
+              <button class="uh-btn-glow btn btn-success">Send</button>
+              <button class="uh-btn-glow btn btn-danger">Report</button>
+              <button class="btn btn-outline-light">🚨 Emergency</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIDE HISTORY -->
+      <section class="uh-section mb-5">
+        <div class="uh-card p-4">
+          <h5 class="fw-bold text-primary mb-3">🛵 Ride History</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-transparent text-light border-secondary">E-Scooter X1 — ₹45 — Completed</li>
+            <li class="list-group-item bg-transparent text-light border-secondary">Eco Bike 2 — ₹30 — Completed</li>
+            <li class="list-group-item bg-transparent text-light border-secondary">Urban Scooter — ₹25 — Cancelled</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- 📱 Bottom Nav -->
+    <div class="bottom-nav fixed-bottom d-flex justify-content-around align-items-center py-2">
+      <div class="nav-item d-flex flex-column align-items-center">
+        🏠 <small class="nav-label">Home</small>
+      </div>
+      <div class="nav-item d-flex flex-column align-items-center">
+        🗺️ <small class="nav-label">Map</small>
+      </div>
+      <div class="nav-item d-flex flex-column align-items-center">
+        💰 <small class="nav-label">Wallet</small>
+      </div>
+      <div class="nav-item d-flex flex-column align-items-center">
+        👤 <small class="nav-label">Profile</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

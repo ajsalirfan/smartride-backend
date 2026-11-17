@@ -1,0 +1,10 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h1>🚴‍♂ SmartRide Control Center</h1>
+<div style="display:flex; gap:20px;">
+    <div>👤 Total Users: {{ total_users }}</div>
+    <div>🧑‍🔧 Staff Members: {{ total_staff }}</div>
+    <div>🚗 Vehicles: {{ total_vehicles }}</div>
+    <div>🚨 Alerts: {{ total_alerts }}</div>
+</div>
+{% endblock %}

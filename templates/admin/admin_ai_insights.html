@@ -1,0 +1,28 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<div style="background:#0b1e33;padding:24px;border-radius:12px;color:white;max-width:750px;margin:auto;box-shadow:0 6px 18px rgba(0,0,0,0.4);">
+  <h2 style="text-align:center;">🚀 SmartRide AI Insights</h2>
+  <p style="text-align:center;color:#9ecffb;">User: <strong>{{ user.username }}</strong> ({{ user.email }})</p>
+  <hr style="border-color:#1b3a5b;margin:18px 0;">
+  
+  {% if analytics.error %}
+    <div style="color:#f44336;text-align:center;">⚠️ {{ analytics.error }}</div>
+  {% else %}
+    <table style="width:100%;color:#e3f2fd;">
+      {% for label, value in analytics.items %}
+        <tr style="border-bottom:1px solid #1b3a5b;">
+          <td style="padding:10px 6px;"><strong>{{ label }}</strong></td>
+          <td style="padding:10px 6px;text-align:right;">{{ value }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+  
+  <div style="text-align:center;margin-top:22px;">
+    <a href="/smartride-admin/Users/customuser/" 
+       style="background:#2196f3;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;">
+       ← Back to Users
+    </a>
+  </div>
+</div>
+{% endblock %}
