@@ -14,6 +14,7 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1', '0.0.0.0', '192.168.1.*',
     'testserver', '.smartride.com', '.vercel.app', '.railway.app',
+    'smartride-backend.onrender.com',  # ✅ Render ലിങ്ക് ചേർത്തു
 ]
 
 AUTH_USER_MODEL = 'Users.CustomUser'
@@ -115,23 +116,45 @@ SIMPLE_JWT = {
     'SIGNING_KEY': SECRET_KEY,
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+
 # ==================== CORS & SESSION CONFIG ====================
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://smartride-frontend-seven.vercel.app",  # ✅ Vercel ലിങ്ക് ചേർത്തു
+    "https://smartride-frontend-seven.vercel.app",  # ✅ Vercel ലിങ്ക്
 ]
+
+# ✅ Preflight പ്രശ്നം പരിഹരിക്കാൻ ഇത് കൂടി ചേർക്കണം
+from corsheaders.defaults import default_headers
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "content-type",
+    "authorization",
+    "x-csrftoken",
+]
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
 if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
 
-# ... (Session Engine കോഡുകൾ അതേപടി ഇരിക്കട്ടെ) ...
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://smartride-frontend-seven.vercel.app",  # ✅ ഇവിടെയും ചേർക്കുക
 ]
+
+
 # ==================== EMAIL CONFIG ====================
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
