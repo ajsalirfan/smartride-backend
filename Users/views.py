@@ -94,12 +94,13 @@ class UserRegistrationView(generics.CreateAPIView):
             user_agent=request.META.get('HTTP_USER_AGENT', '')
         )
 
-        # ✅ SAFE EMAIL SENDING (എറർ വന്നാലും ആപ്പ് തകരരുത്)
-        email_sent = False
-        try:
-            email_sent = send_welcome_email(user)
-        except Exception as e:
-            print(f"⚠️ Welcome email failed: {e}")
+        # ✅ ഇമെയിൽ അയക്കുന്ന ഭാഗം താൽക്കാലികമായി ഒഴിവാക്കാം
+        # try:
+        #     email_sent = send_welcome_email(user)
+        # except Exception as e:
+        #     print(f"⚠️ Welcome email failed: {e}")
+        
+        email_sent = False # താൽക്കാലികമായി False എന്ന് വെക്കുക
 
         welcome_data = {
             "message": f"🎉 Welcome to Smart Ride, {user.username}!",
@@ -113,12 +114,11 @@ class UserRegistrationView(generics.CreateAPIView):
         return Response({
             "success": True,
             "message": "User registered successfully.",
-            "email_sent": email_sent,  # ✅ ഇമെയിൽ ഫെയിൽ ആയാൽ false എന്ന് വരും, പക്ഷെ രജിസ്ട്രേഷൻ വിജയിക്കും
+            "email_sent": email_sent,
             "welcome_message": welcome_data,
             "user_id": user.id,
             "email": user.email
         }, status=201)
-    
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
 def login_user(request):
