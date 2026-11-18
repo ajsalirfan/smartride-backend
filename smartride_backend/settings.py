@@ -14,7 +14,7 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1', '0.0.0.0', '192.168.1.*',
     'testserver', '.smartride.com', '.vercel.app', '.railway.app',
-    'smartride-backend.onrender.com',  # ✅ Render ലിങ്ക് ചേർത്തു
+    'smartride-backend-obsq.onrender.com',  # ✅ പുതിയ ലിങ്ക് ഇവിടെ ചേർത്തു
 ]
 
 AUTH_USER_MODEL = 'Users.CustomUser'
@@ -56,7 +56,6 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'smartride_backend.urls'
 WSGI_APPLICATION = 'smartride_backend.wsgi.application'
 
-
 # ==================== DATABASE ====================
 import dj_database_url
 
@@ -66,7 +65,6 @@ DATABASES = {
         conn_max_age=600
     )
 }
-
 
 # ==================== PASSWORD VALIDATION ====================
 AUTH_PASSWORD_VALIDATORS = [
@@ -117,7 +115,6 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-
 # ==================== CORS & SESSION CONFIG ====================
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
@@ -126,7 +123,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://smartride-frontend-seven.vercel.app",  # ✅ Vercel ലിങ്ക്
 ]
 
-# ✅ Preflight പ്രശ്നം പരിഹരിക്കാൻ ഇത് കൂടി ചേർക്കണം
 from corsheaders.defaults import default_headers
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
@@ -147,13 +143,11 @@ CORS_ALLOW_METHODS = [
 if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
 
-
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://smartride-frontend-seven.vercel.app",  # ✅ ഇവിടെയും ചേർക്കുക
+    "https://smartride-frontend-seven.vercel.app",  # ✅ Vercel ലിങ്ക്
 ]
-
 
 # ==================== EMAIL CONFIG ====================
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -215,7 +209,6 @@ SMART_RIDE_CONFIG = {
     'DOCUMENT_TYPES': ['aadhar_front', 'aadhar_back', 'driving_license'],
 }
 
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
@@ -225,7 +218,6 @@ ADMIN_CSS = 'admin/css/smartride_admin_theme.css'
 
 def get_admin_extra_context(request):
     return {'admin_css': ADMIN_CSS}
-
 
 RAZOR_KEY_ID = config("RAZOR_KEY_ID")
 RAZOR_KEY_SECRET = config("RAZOR_KEY_SECRET")
